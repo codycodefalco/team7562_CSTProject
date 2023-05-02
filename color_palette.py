@@ -1,4 +1,4 @@
-import random
+import sys, random
 from pprint import pprint # pretty print  - no need to install
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QComboBox, QSlider)
 from PySide6.QtCore import Slot, Qt 
