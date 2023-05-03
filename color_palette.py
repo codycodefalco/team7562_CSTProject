@@ -107,10 +107,10 @@ class Colors(QWidget):
         g = self.green_slider.value()
         b = self.blue_slider.value()
        
-        color1 = QColor(r+50, g-20, b-10)
-        color2 = QColor(r-20, g+5, b+20)
-        color3 = QColor(r+50, g-30, b+30)
-        color4 = QColor(r+40, g-2, b+30)
+        color1 = QColor(r+10, g-20, b-10)
+        color2 = QColor(r-20, g+25, b+10)
+        color3 = QColor(r+20, g-10, b+30)
+        color4 = QColor(r-10, g-10, b+30)
 
         color4 = color4.getRgb()[:3]
         color1 = color1.getRgb()[:3]
@@ -123,11 +123,17 @@ class Colors(QWidget):
         palette_list[1] = tuple(255 - i for i in color4)
 
          # Add color boxes to layout
+        i = 1;
         for color in palette_list:
-            color_box = QtWidgets.QFrame(self)
-            color_box.setFixedSize(100, 100)
-            color_box.setStyleSheet(f"background-color: rgb{color};")
-            self.boxes.addWidget(color_box)
+            if(i == 1):
+                self.box1.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 2):
+                self.box2.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 3):
+                self.box3.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 4):
+                self.box4.setStyleSheet(f"background-color: rgb{color};")
+            i = i + 1
     
 # source cst205env/bin/activate
 
