@@ -106,7 +106,7 @@ class Colors(QWidget):
         
         #overall layout
         vbox.addLayout(hbox)
-        vbox.addLayout(self.boxes)
+        vbox.addLayout(boxes)
         vbox.addWidget(self.btn)
 
         self.resize(600, 600)
@@ -136,10 +136,10 @@ class Colors(QWidget):
         g = self.green_slider.value()
         b = self.blue_slider.value()
        
-        color1 = QColor(r+50, g-30, b-70)
-        color2 = QColor(r-20, g+15, b+10)
-        color3 = QColor(r+40, g+40, b+50)
-        color4 = QColor(r-5, g+70, b-5)
+        color1 = QColor(r+10, g-20, b-10)
+        color2 = QColor(r-20, g+25, b+10)
+        color3 = QColor(r+20, g-10, b+50)
+        color4 = QColor(r-10, g-100, b-5)
 
         color4 = color4.getRgb()[:3]
         color1 = color1.getRgb()[:3]
@@ -175,15 +175,6 @@ class Colors(QWidget):
                 color_hex = "#{:02x}{:02x}{:02x}".format(*color)
                 self.box4Label.setText(color_str + '\n' + 'Hex: ' + color_hex)
             i = i + 1;
-            if(i == 1):
-                self.box1.setStyleSheet(f"background-color: rgb{color};")
-            if(i == 2):
-                self.box2.setStyleSheet(f"background-color: rgb{color};")
-            if(i == 3):
-                self.box3.setStyleSheet(f"background-color: rgb{color};")
-            if(i == 4):
-                self.box4.setStyleSheet(f"background-color: rgb{color};")
-            i = i + 1
     
 # source cst205env/bin/activate
 
