@@ -152,6 +152,7 @@ class Colors(QWidget):
         palette_list[1] = tuple(255 - i for i in color4)
 
          # Add color boxes to layout
+        i = 1;
         for color in palette_list:
             if(i == 1):
                 self.box1.setStyleSheet(f"background-color: rgb{color};")
@@ -174,6 +175,15 @@ class Colors(QWidget):
                 color_hex = "#{:02x}{:02x}{:02x}".format(*color)
                 self.box4Label.setText(color_str + '\n' + 'Hex: ' + color_hex)
             i = i + 1;
+            if(i == 1):
+                self.box1.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 2):
+                self.box2.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 3):
+                self.box3.setStyleSheet(f"background-color: rgb{color};")
+            if(i == 4):
+                self.box4.setStyleSheet(f"background-color: rgb{color};")
+            i = i + 1
     
 # source cst205env/bin/activate
 
