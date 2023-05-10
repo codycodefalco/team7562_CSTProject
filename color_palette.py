@@ -18,7 +18,7 @@ class Colors(QWidget):
         self.rgb_label = QLabel("RGB: (0) to (255)")
         self.hex_label = QLabel("Hex:")
         self.btn = QPushButton('SHOW COLORS')
-        self.btn.setFixedWidth(200)
+        self.btn.setFixedWidth(300)
         
 
         #set background color to lilac
@@ -52,7 +52,44 @@ class Colors(QWidget):
         vbox.addWidget(self.first_label)
 
         # Create layouts for color boxes
-        self.boxes = QHBoxLayout()
+        boxes = QHBoxLayout()
+        
+        box1Widget = QWidget()
+        box1v = QVBoxLayout(box1Widget)
+        self.box1 = QtWidgets.QFrame(self)
+        self.box1.setFixedSize(100, 100)
+        self.box1Label = QLabel()
+        box1v.addWidget(self.box1)
+        box1v.addWidget(self.box1Label)
+
+        box2Widget = QWidget()
+        box2v = QVBoxLayout(box2Widget)
+        self.box2 = QtWidgets.QFrame(box2Widget)
+        self.box2.setFixedSize(100, 100)
+        self.box2Label = QLabel()
+        box2v.addWidget(self.box2)
+        box2v.addWidget(self.box2Label)
+
+        box3Widget = QWidget()
+        box3v = QVBoxLayout(box3Widget)
+        self.box3 = QtWidgets.QFrame(box3Widget)
+        self.box3.setFixedSize(100, 100)
+        self.box3Label = QLabel()
+        box3v.addWidget(self.box3)
+        box3v.addWidget(self.box3Label)
+
+        box4Widget = QWidget()
+        box4v = QVBoxLayout(box4Widget)
+        self.box4 = QtWidgets.QFrame(box4Widget)
+        self.box4.setFixedSize(100, 100)
+        self.box4Label = QLabel()
+        box4v.addWidget(self.box4)
+        box4v.addWidget(self.box4Label)
+
+        boxes.addWidget(box1Widget)
+        boxes.addWidget(box2Widget)
+        boxes.addWidget(box3Widget)
+        boxes.addWidget(box4Widget)  
 
         #RGB sliders
         rgb_container = QWidget()
@@ -79,14 +116,6 @@ class Colors(QWidget):
         self.blue_slider.valueChanged.connect(self.update_color) #when slider is changed
         self.btn.clicked.connect(self.generate_color_palette)
 
-        # # Add color boxes to layout
-        # for color in self.color_palette:
-        #     color_box = QLabel(self)
-        #     color_box.setFixedSize(100, 100)
-            
-        #     color_box.setStyleSheet(f"background-color: {color.name()}")
-        #     self.boxes.addWidget(color_box)
-
 
     @Slot()
     def set_background(self, color):
@@ -107,10 +136,10 @@ class Colors(QWidget):
         g = self.green_slider.value()
         b = self.blue_slider.value()
        
-        color1 = QColor(r+50, g-20, b-10)
-        color2 = QColor(r-20, g+5, b+20)
-        color3 = QColor(r+50, g-30, b+30)
-        color4 = QColor(r+40, g-2, b+30)
+        color1 = QColor(r+50, g-30, b-70)
+        color2 = QColor(r-20, g+15, b+10)
+        color3 = QColor(r+40, g+40, b+50)
+        color4 = QColor(r-5, g+70, b-5)
 
         color4 = color4.getRgb()[:3]
         color1 = color1.getRgb()[:3]
@@ -124,10 +153,27 @@ class Colors(QWidget):
 
          # Add color boxes to layout
         for color in palette_list:
-            color_box = QtWidgets.QFrame(self)
-            color_box.setFixedSize(100, 100)
-            color_box.setStyleSheet(f"background-color: rgb{color};")
-            self.boxes.addWidget(color_box)
+            if(i == 1):
+                self.box1.setStyleSheet(f"background-color: rgb{color};")
+                color_str = f"RGB: ({color[0]}, {color[1]}, {color[2]})"
+                color_hex = "#{:02x}{:02x}{:02x}".format(*color)
+                self.box1Label.setText(color_str + '\n' + 'Hex: ' + color_hex)
+            if(i == 2):
+                self.box2.setStyleSheet(f"background-color: rgb{color};")
+                color_str = f"RGB: ({color[0]}, {color[1]}, {color[2]})"
+                color_hex = "#{:02x}{:02x}{:02x}".format(*color)
+                self.box2Label.setText(color_str + '\n' + 'Hex: ' + color_hex)
+            if(i == 3):
+                self.box3.setStyleSheet(f"background-color: rgb{color};")
+                color_str = f"RGB: ({color[0]}, {color[1]}, {color[2]})"
+                color_hex = "#{:02x}{:02x}{:02x}".format(*color)
+                self.box3Label.setText(color_str + '\n'  + 'Hex: ' + color_hex)
+            if(i == 4):
+                self.box4.setStyleSheet(f"background-color: rgb{color};")
+                color_str = f"RGB: ({color[0]}, {color[1]}, {color[2]})"
+                color_hex = "#{:02x}{:02x}{:02x}".format(*color)
+                self.box4Label.setText(color_str + '\n' + 'Hex: '+ color_hex)
+            i = i + 1;
     
 # source cst205env/bin/activate
 
