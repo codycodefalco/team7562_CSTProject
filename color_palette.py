@@ -172,7 +172,7 @@ class Colors(QWidget):
                 self.box4.setStyleSheet(f"background-color: rgb{color};")
                 color_str = f"RGB: ({color[0]}, {color[1]}, {color[2]})"
                 color_hex = "#{:02x}{:02x}{:02x}".format(*color)
-                self.box4Label.setText(color_str + '\n' + 'Hex: '+ color_hex)
+                self.box4Label.setText(color_str + '\n' + 'Hex: ' + color_hex)
             i = i + 1;
     
 # source cst205env/bin/activate
