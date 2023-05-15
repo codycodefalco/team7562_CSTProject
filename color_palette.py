@@ -47,7 +47,7 @@ class Colors(QWidget):
         self.blue_slider.setTickInterval(10)        # set the tick interval to 1
         self.blue_slider.setValue(128)
 
-        # Color Picker label
+               # Color Picker label
         vbox = QVBoxLayout() # Vertical Layout
         vbox.addWidget(self.first_label)
 
@@ -104,13 +104,26 @@ class Colors(QWidget):
         hbox.addWidget(self.rgb_label)
         hbox.addWidget(rgb_container)
         
-        #overall layout
+        #left side vertical layout
         vbox.addLayout(hbox)
         vbox.addLayout(boxes)
         vbox.addWidget(self.btn)
 
+        #Right side Clothing layout:
+        clothingbox = QVBoxLayout()
+        self.shirt_box = QLabel()
+        self.shirt_img = QPixmap('image/shirt.webp')
+        self.shirt_box.setPixmap(self.shirt_img)
+        clothingbox.addWidget(self.shirt_box) 
+
+        #overall layout
+        bigHbox = QHBoxLayout()
+        bigHbox.addLayout(vbox)
+        bigHbox.addLayout(clothingbox)
+        
+
         self.resize(600, 600)
-        self.setLayout(vbox)
+        self.setLayout(bigHbox)
         self.red_slider.valueChanged.connect(self.update_color) #when slider is changed
         self.green_slider.valueChanged.connect(self.update_color) #when slider is changed
         self.blue_slider.valueChanged.connect(self.update_color) #when slider is changed
