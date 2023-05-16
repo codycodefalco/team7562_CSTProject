@@ -6,3 +6,4 @@ May 17, 2023
 Before running the program PySide6 must be installed. In the directory where the folder is located and enter python color_palette.py.
 GitHub: https://github.com/codycodefalco/team7562_CSTProject.git
 Trello Board: https://github.com/codycodefalco/team7562_CSTProject.git
+Future work: Add a character with multiple outfits and shoes. 
