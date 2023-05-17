@@ -1,3 +1,9 @@
+# Github Link: https://github.com/codycodefalco/team7562_CSTProject
+# Rgb to Hex formula: https://www.educative.io/answers/how-to-convert-hex-to-rgb-and-rgb-to-hex-in-python
+# This app will generate a palette with complimentary colors based on the user's 
+# choice in the RGB sliders.
+
+
 import sys, random
 from pprint import pprint
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QComboBox, QSlider)
@@ -11,6 +17,7 @@ NEUTRAL_COLORS = [
     QColor(0, 0, 0),  # Black
     QColor(245, 245, 220),  # Beige
 ]
+
 class Colors(QWidget):
     def __init__(self):
         super().__init__()
@@ -24,7 +31,7 @@ class Colors(QWidget):
         
 
         #set background color to lilac
-        self.set_background('#c199e0')
+        self.set_background('#808080')
 
         #create color sliders:
         #R:
@@ -114,9 +121,13 @@ class Colors(QWidget):
         #Right side Clothing layout:
         clothingbox = QVBoxLayout()
         self.shirt_box = QLabel()
+        self.pants_box = QLabel()
         self.shirt_img = QPixmap('image/shirt.webp')
+        self.pants_img = QPixmap('image/PANTS.png')
         self.shirt_box.setPixmap(self.shirt_img)
+        self.pants_box.setPixmap(self.pants_img)
         clothingbox.addWidget(self.shirt_box) 
+        clothingbox.addWidget(self.pants_box)
 
         #overall layout
         bigHbox = QHBoxLayout()
@@ -150,12 +161,12 @@ class Colors(QWidget):
         r = self.red_slider.value()
         g = self.green_slider.value()
         b = self.blue_slider.value()
-    
-        color1 = QColor(r, g, b)
-        color2 = QColor(random.choice(NEUTRAL_COLORS))
-        color3 = QColor(255-r, 255-g, 255-b)
-        color4 = QColor(abs(r-128), abs(g-128), abs(b-128))
-    
+       
+        color1 = QColor(r+10, g-20, b-10)
+        color2 = QColor(r-20, g+25, b+10)
+        color3 = QColor(r+20, g-10, b+50)
+        color4 = QColor(r-10, g-100, b-5)
+
         color4 = color4.getRgb()[:3]
         color1 = color1.getRgb()[:3]
         color2 = color2.getRgb()[:3]
