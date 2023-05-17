@@ -40,22 +40,19 @@ def update_avatar():
     avatar_pixmap = QPixmap.fromImage(ImageQt(avatar))
     avatar_label.setPixmap(avatar_pixmap)
 
-# Create a button to update the avatar image
+
 update_button = QPushButton("Update Avatar")
 update_button.clicked.connect(update_avatar)
 
-# Create a tool bar
+
 tool_bar = QToolBar()
 tool_bar.addWidget(update_button)
 window.addToolBar(tool_bar)
 
-# Add the horizontal layout to the central widget of the window
 central_widget = QWidget()
 central_widget.setLayout(hlayout)
 window.setCentralWidget(central_widget)
 
-# Show the window
+
 window.show()
 sys.exit(app.exec())
-
-ChatGPT
