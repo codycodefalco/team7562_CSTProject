@@ -28,7 +28,7 @@ class Colors(QWidget):
         
 
         #set background color to lilac
-        self.set_background('#c199e0')
+        self.set_background('#808080')
 
         #create color sliders:
         #R:
