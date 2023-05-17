@@ -5,10 +5,12 @@ from PySide6.QtCore import Slot, Qt
 from PySide6.QtGui import QPixmap, QColor
 from PySide6 import QtGui, QtWidgets
 
-NEUTRAL_COLORS = [(255, 255, 255), (128, 128, 128), (245, 245, 220)]
-ACCENT_COLORS = [(255, 0, 0), (255, 165, 0), (255, 255, 0), (0, 128, 0), 
-                 (0, 255, 255), (0, 0, 255), (128, 0, 128), (255, 0, 255)]
-
+NEUTRAL_COLORS = [
+    QColor(128, 128, 128),  # Gray
+    QColor(255, 255, 255),  # White
+    QColor(0, 0, 0),  # Black
+    QColor(245, 245, 220),  # Beige
+]
 class Colors(QWidget):
     def __init__(self):
         super().__init__()
@@ -148,19 +150,19 @@ class Colors(QWidget):
         r = self.red_slider.value()
         g = self.green_slider.value()
         b = self.blue_slider.value()
-       
-        color1 = QColor(r+10, g-20, b-10)
-        color2 = QColor(r-20, g+25, b+10)
-        color3 = QColor(r+20, g-10, b+50)
-        color4 = QColor(r-10, g-100, b-5)
-
+    
+        color1 = QColor(r, g, b)
+        color2 = QColor(random.choice(NEUTRAL_COLORS))
+        color3 = QColor(255-r, 255-g, 255-b)
+        color4 = QColor(abs(r-128), abs(g-128), abs(b-128))
+    
         color4 = color4.getRgb()[:3]
         color1 = color1.getRgb()[:3]
         color2 = color2.getRgb()[:3]
         color3 = color3.getRgb()[:3]
 
 
-        # Create palette with the base color, one neutral color, and one accent color
+            # Create palette with the base color, one neutral color, and one accent color
         palette_list = [color4, color1, color2, color3]
         palette_list[1] = tuple(255 - i for i in color4)
 
